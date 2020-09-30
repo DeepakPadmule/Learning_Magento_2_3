@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config>
+    <type name="Magento\Checkout\Model\Cart">
+      <plugin name="afterAddProduct" type="Learning\PluginModule\Plugin\Cart" sortOrder="1" disabled="false"/>
+    </type>
+    <type name="Magento\Catalog\Model\Product">
+      <plugin name="afterGetName" type="Learning\PluginModule\Plugin\Product" sortOrder="1" disabled="false"/>
+      <!-- <plugin name="afterGetPrice" type="Learning\PluginModule\Plugin\Product" sortOrder="2" disabled="false"/> -->
+    </type>
+</config>
