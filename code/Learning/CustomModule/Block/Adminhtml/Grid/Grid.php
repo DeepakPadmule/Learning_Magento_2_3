@@ -51,12 +51,23 @@ class Grid extends Extended
         return parent::_prepareCollection();
     }
     
+    // protected function _prepareCollection()
+    // {
+    //     if ($this->getCollection()) 
+    //     {
+    //         foreach ($this->getDefaultFilter() as $field => $value)
+    //         {
+    //             $this->getCollection()->addFieldToFilter($field, $value);
+    //         }
+    //     }
+    //     return parent::_prepareCollection();
+    // }   
+
     /**
     * Prepare default grid column
     *
     * @return $this
     */
-
     protected function _prepareColumns()
     {
         
@@ -119,26 +130,26 @@ class Grid extends Extended
                 'type' => 'datetime',
             ]
         );
-        $this->addColumn(
-            'action',
-            [
-                'header' => __('Action'),
-                'width' => '100px',
-                'type'  => 'action',
-                'getter' => 'getId',
-                'actions' => [
-                    [
-                        'caption' => __('Action Name'),
-                        'url' => ['base' => 'routeName/controller/actionName'], 
-                        'field' => 'id' // pass id as parameter
-                        ]
-                    ],
-                    'filter' => false,
-                'sortable' => false,
-                'index' => 'id',
-                'is_system' => true
-            ]
-        );
+        // $this->addColumn(
+        //     'action',
+        //     [
+        //         'header' => __('Action'),
+        //         'width' => '100px',
+        //         'type'  => 'action',
+        //         'getter' => 'getId',
+        //         'actions' => [
+        //             [
+        //                 'caption' => __('Action Name'),
+        //                 'url' => ['base' => 'routeName/controller/actionName'], 
+        //                 'field' => 'id' // pass id as parameter
+        //                 ]
+        //             ],
+        //             'filter' => false,
+        //         'sortable' => false,
+        //         'index' => 'id',
+        //         'is_system' => true
+        //     ]
+        // );
         return parent::_prepareColumns();
     }
 

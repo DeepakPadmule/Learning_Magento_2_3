@@ -13,8 +13,10 @@ class Grid  extends Container
     {
         $this->_controller = 'adminhtml_grid';
         $this->_blockGroup = 'Learning_CustomModule';
+        $this->_addButtonLabel = __('Add New Post');
         $this->_headerText = __('Custom Grid');
         parent::_construct();
         $this->removeButton('add');
+        // $this->_addButtonLabel = __('Add New Post');
     }
 }
