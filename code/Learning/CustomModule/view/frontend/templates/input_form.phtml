@@ -1,0 +1,40 @@
+<?php
+	//echo 'This is a simple custom module and it does not include admin and database realted files.';
+?>
+<form class="" action="<?php echo $block->getBaseUrl().'custom_module/page/save'; ?>" id="learning-test-form" method="post">
+    <fieldset class="fieldset">
+        <legend class="legend"><span>Test Form For Learning_CustomForm Module</span></legend><br>
+        <div class="field note no-label">Please fill the following form to register a Book</div>
+        <div class="field title">
+            <label class="label" for="title"><span>Title / Book Name</span></label>
+            <div class="control">
+                <input name="title" id="title" title="Name" value="" class="input-text" type="text" required>
+            </div>
+        </div>
+        <div class="field author">
+            <label class="label" for="author"><span>Author</span></label>
+            <div class="control">
+                <input name="author" id="author" title="Author" value="" class="input-text" type="text" required>
+            </div>
+        </div>
+        <div class="field content">
+            <label class="label" for="content"><span>Content</span></label>
+            <div class="control">
+                <textarea name="content" id="content" title="Content" class="input-text" cols="5" rows="3"></textarea>
+            </div>
+        </div>
+        <div class="field price">
+            <label class="label" for="price"><span>Price</span></label>
+            <div class="control">
+                <input name="price" id="price" title="Price" class="input-text" type="number" required>
+            </div>
+        </div>
+    </fieldset>
+    <div class="actions-toolbar">
+        <div class="primary">
+            <button type="submit" title="Submit" class="action submit primary">
+                <span>Submit</span>
+            </button>
+        </div>
+    </div>
+</form>

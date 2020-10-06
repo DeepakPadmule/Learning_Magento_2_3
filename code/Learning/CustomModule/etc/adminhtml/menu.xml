@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+      <add id="Learning_CustomModule::custom_module" title="Custom Module" module="Learning_CustomModule" sortOrder="10" resource="Learning_CustomModule::grid"/>
+      <add id="Learning_CustomModule::custom_module_data" title="Data" translate="title" module="Learning_CustomModule" parent="Learning_CustomModule::custom_module" sortOrder="10" dependsOnModule="Learning_CustomModule" action="custom_module/grid/index" resource="Learning_CustomModule::custom_module"/>
+    </menu>
+</config>
