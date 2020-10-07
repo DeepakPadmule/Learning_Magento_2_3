@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <payment>
+            <capstone_custompayment>
+                <title>Capstone Custom Payment</title>
+                <model>Capstone\CustomPayment\Model\CustomPayment</model>
+                <active>1</active>
+                <cctypes>AE,VI,MC,DI</cctypes>
+            </capstone_custompayment>
+        </payment>
+    </default>
+</config>
+

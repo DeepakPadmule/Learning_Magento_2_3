@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!-- <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+    <type name="Magento\Payment\Model\CcGenericConfigProvider">
+        <arguments>
+            <argument name="methodCodes" xsi:type="array">
+                <item name="capstone_custompayment" xsi:type="const">Capstone\CustomPayment\Model\CustomPayment::CODE</item>
+            </argument>
+        </arguments>
+    </type>
+</config>
