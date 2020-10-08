@@ -2,12 +2,7 @@
 
 namespace Capstone\CustomPayment\Model;
 
-use Exception;
-use Magento\Framework\Exception\LocalizedException;
-use Magento\Payment\Model\InfoInterface;
-use Magento\Payment\Model\Method\Cc;
-
-class CustomPayment extends Cc
+class CustomPayment extends \Magento\Payment\Model\Method\Cc
 {
     const CODE = 'capstone_custompayment';
 
@@ -19,15 +14,15 @@ class CustomPayment extends Cc
     /**
      * Capture Payment.
      *
-     * @param InfoInterface $payment
+     * @param \Magento\Payment\Model\InfoInterface $payment
      * @param float $amount
      * @return $this
      */
-    public function capture(InfoInterface $payment, $amount)
+    public function capture(\Magento\Payment\Model\InfoInterface $payment, $amount)
     {
         try {
             //check if payment has been authorized
-            if (is_null($payment->getParentTransactionId())) {
+            if(is_null($payment->getParentTransactionId())) {
                 $this->authorize($payment, $amount);
             }
 
@@ -44,7 +39,8 @@ class CustomPayment extends Cc
 
             //transaction is done.
             $payment->setIsTransactionClosed(1);
-        } catch (Exception $e) {
+
+        } catch (\Exception $e) {
             $this->debug($payment->getData(), $e->getMessage());
         }
 
@@ -54,11 +50,11 @@ class CustomPayment extends Cc
     /**
      * Authorize a payment.
      *
-     * @param InfoInterface $payment
+     * @param \Magento\Payment\Model\InfoInterface $payment
      * @param float $amount
      * @return $this
      */
-    public function authorize(InfoInterface $payment, $amount)
+    public function authorize(\Magento\Payment\Model\InfoInterface $payment, $amount)
     {
         try {
 
@@ -73,11 +69,12 @@ class CustomPayment extends Cc
 
             //check if payment has been authorized
             $response = $this->makeAuthRequest($request);
-        } catch (Exception $e) {
+
+        } catch (\Exception $e) {
             $this->debug($payment->getData(), $e->getMessage());
         }
 
-        if (isset($response['transactionID'])) {
+        if(isset($response['transactionID'])) {
             // Successful auth request.
             // Set the transaction id on the payment so the capture request knows auth has happened.
             $payment->setTransactionId($response['transactionID']);
@@ -105,14 +102,14 @@ class CustomPayment extends Cc
      *
      * @param $request
      * @return array
-     * @throws LocalizedException
+     * @throws \Magento\Framework\Exception\LocalizedException
      */
     public function makeAuthRequest($request)
     {
         $response = ['transactionId' => 123]; //todo implement API call for auth request.
 
-        if (!$response) {
-            throw new LocalizedException(__('Failed auth request.'));
+        if(!$response) {
+            throw new \Magento\Framework\Exception\LocalizedException(__('Failed auth request.'));
         }
 
         return $response;
@@ -123,14 +120,14 @@ class CustomPayment extends Cc
      *
      * @param $request
      * @return array
-     * @throws LocalizedException
+     * @throws \Magento\Framework\Exception\LocalizedException
      */
     public function makeCaptureRequest($request)
     {
         $response = ['success']; //todo implement API call for capture request.
 
-        if (!$response) {
-            throw new LocalizedException(__('Failed capture request.'));
+        if(!$response) {
+            throw new \Magento\Framework\Exception\LocalizedException(__('Failed capture request.'));
         }
 
         return $response;

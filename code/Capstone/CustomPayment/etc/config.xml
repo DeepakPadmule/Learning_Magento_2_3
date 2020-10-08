@@ -4,7 +4,7 @@
     <default>
         <payment>
             <capstone_custompayment>
-                <title>Capstone Custom Payment</title>
+                <title>Custom Payment Method</title>
                 <model>Capstone\CustomPayment\Model\CustomPayment</model>
                 <active>1</active>
                 <cctypes>AE,VI,MC,DI</cctypes>
@@ -12,4 +12,3 @@
         </payment>
     </default>
 </config>
-

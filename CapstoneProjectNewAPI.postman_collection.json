@@ -1,0 +1,400 @@
+{
+	"info": {
+		"_postman_id": "477ce5d0-5ed1-431b-8450-f2c9ec884eb3",
+		"name": "CapstoneProjectNewAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Admin Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"Deepak\",\n  \"password\": \"Deepak@123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:86/rest/default/V1/integration/admin/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "86",
+					"path": [
+						"rest",
+						"default",
+						"V1",
+						"integration",
+						"admin",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Customer Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"chetan.raut@gmail.com\",\n  \"password\": \"Chetan@123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:86/rest/default/V1/integration/customer/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "86",
+					"path": [
+						"rest",
+						"default",
+						"V1",
+						"integration",
+						"customer",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a Cart using Customer Token",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "n2jb6cu98ld8j8le5i6lq18woo365r3p",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:86/rest/default/V1/carts/mine",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "86",
+					"path": [
+						"rest",
+						"default",
+						"V1",
+						"carts",
+						"mine"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add item to the cart",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "n2jb6cu98ld8j8le5i6lq18woo365r3p",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"cartItem\": {\n    \"sku\": \"Apple iPhone X\",\n    \"qty\": 1,\n    \"quote_id\": \"16\"\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:86/rest/default/V1/carts/mine/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "86",
+					"path": [
+						"rest",
+						"default",
+						"V1",
+						"carts",
+						"mine",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View Shipping Methods",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "n2jb6cu98ld8j8le5i6lq18woo365r3p",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"address\": {\n      \"region\": \"Maharashtra\",\n      \"region_id\": 553,\n      \"region_code\": \"MH\",\n      \"country_id\": \"IN\",\n      \"street\": [\n            \"Zeal College Chowk, Narhe\"\n       ],\n      \"postcode\": \"411041\",\n      \"city\": \"Pune\",\n      \"telephone\": \"9689625671\",\n      \"firstname\": \"Chetan\",\n      \"lastname\": \"Raut\",\n      \"email\": \"chetan.raut@gmail.com\",\n      \"customer_id\": 1,\n      \"same_as_billing\": 1\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:86/rest/default/V1/carts/mine/estimate-shipping-methods",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "86",
+					"path": [
+						"rest",
+						"default",
+						"V1",
+						"carts",
+						"mine",
+						"estimate-shipping-methods"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Set Shipping Method",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "n2jb6cu98ld8j8le5i6lq18woo365r3p",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"addressInformation\": \n    {\n    \"shipping_address\": {\n      \"region\": \"Maharashtra\",\n      \"region_id\": 553,\n      \"region_code\": \"MH\",\n      \"country_id\": \"IN\",\n      \"street\": [\n            \"Zeal College Chowk, Narhe\"\n       ],\n      \"postcode\": \"411041\",\n      \"city\": \"Pune\",\n      \"telephone\": \"9689625671\",\n      \"firstname\": \"Chetan\",\n      \"lastname\": \"Raut\",\n      \"email\": \"chetan.raut@gmail.com\"\n    },\n\n    \"billing_address\": {\n      \"email\": \"chetan.raut@gmail.com\",\n      \"region\": \"Maharashtra\",\n      \"region_id\": 553,\n      \"region_code\": \"MH\",\n      \"country_id\": \"IN\",\n      \"street\": [\n              \"Zeal College Chowk, Narhe\"\n      ],\n      \"postcode\": \"411041\",\n      \"city\": \"Pune\",\n      \"telephone\": \"9689625671\",\n      \"firstname\": \"Chetan\",\n      \"lastname\": \"Raut\"\n    },\n    \"shipping_carrier_code\": \"customshipping\",\n    \"shipping_method_code\": \"customshipping\"\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:86/rest/default/V1/carts/mine/shipping-information",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "86",
+					"path": [
+						"rest",
+						"default",
+						"V1",
+						"carts",
+						"mine",
+						"shipping-information"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create an Order to get Order ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "n2jb6cu98ld8j8le5i6lq18woo365r3p",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"paymentMethod\": {\n    \"method\": \"customcod\"\n  },\n  \"billing_address\": {\n    \"email\": \"chetan.raut@gmail.com\",\n    \"region\": \"Maharashtra\",\n    \"region_id\": 553,\n    \"region_code\": \"MH\",\n    \"country_id\": \"IN\",\n    \"street\": [\n            \"Zeal College Chowk, Narhe\"\n    ],\n    \"postcode\": \"411041\",\n    \"city\": \"Pune\",\n    \"telephone\": \"9689625671\",\n    \"firstname\": \"Chetan\",\n    \"lastname\": \"Raut\"\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:86/rest/default/V1/carts/mine/payment-information",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "86",
+					"path": [
+						"rest",
+						"default",
+						"V1",
+						"carts",
+						"mine",
+						"payment-information"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create an Invoice to get Invoice Id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "b0tnxy0dmjq51950sb64qrhrrijvl1kk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"capture\": true,\n  \"notify\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:86/rest/default/V1/order/4/invoice",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "86",
+					"path": [
+						"rest",
+						"default",
+						"V1",
+						"order",
+						"4",
+						"invoice"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View Invoice to get order_item_id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "b0tnxy0dmjq51950sb64qrhrrijvl1kk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:86/rest/default/V1/invoices/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "86",
+					"path": [
+						"rest",
+						"default",
+						"V1",
+						"invoices",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a Shipment to get Shipment Id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "b0tnxy0dmjq51950sb64qrhrrijvl1kk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"items\": [\n    {\n      \"order_item_id\": 4,\n      \"qty\": 1\n    }\n  ],\n  \"tracks\": [\n    {\n      \"track_number\": \"1Y-9876543210\",\n      \"title\": \"United Parcel Service\",\n      \"carrier_code\": \"ups\"\n    }\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:86/rest/default/V1/order/4/ship",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "86",
+					"path": [
+						"rest",
+						"default",
+						"V1",
+						"order",
+						"4",
+						"ship"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

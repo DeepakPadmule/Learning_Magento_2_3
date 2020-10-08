@@ -1,6 +1,7 @@
 <?php
+ 
 \Magento\Framework\Component\ComponentRegistrar::register(
     \Magento\Framework\Component\ComponentRegistrar::MODULE,
-    'Capstone_CustomPayment',
+    'Capstone_CustomCOD',
     __DIR__
 );
